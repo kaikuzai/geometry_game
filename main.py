@@ -1,3 +1,5 @@
+from random import randint
+
 class Point:
     
     def __init__(self, x, y):
@@ -22,7 +24,10 @@ class Rectangle:
         self.upright = upright
 
 
-point_one = Point(3,3)
-rectangle_one = Rectangle(Point(6,6), Point(10,10))
+rand_rectangle = Rectangle(Point(randint(0,9), randint(0, 9)), Point(randint(10, 19),randint(10, 19)))
 
-print(point_one.falls_within_rectangle(rectangle_one))
+print(f"The dimensions of the rectangle are ({rand_rectangle.lowleft.x}, {rand_rectangle.lowleft.y}) for the lower left point and ({rand_rectangle.upright.x} and {rand_rectangle.upright.y}) for the upper right point")
+
+guessed_point = Point(int(input("Choose your x cordinate: ")), int(input("Choose your y coordinate: ")))
+
+print(f"Your point falls within the rectangle: {guessed_point.falls_within_rectangle(rand_rectangle)}")
