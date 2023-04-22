@@ -23,6 +23,12 @@ class Rectangle:
         self.lowleft = lowleft 
         self.upright = upright
 
+    def area_of_rectangle(self):
+        length = self.upright.y - self.lowleft.y
+        width = self.upright.x - self.lowleft.y 
+        return length * width
+
+
 
 rand_rectangle = Rectangle(Point(randint(0,9), randint(0, 9)), Point(randint(10, 19),randint(10, 19)))
 
@@ -31,3 +37,8 @@ print(f"The dimensions of the rectangle are ({rand_rectangle.lowleft.x}, {rand_r
 guessed_point = Point(int(input("Choose your x cordinate: ")), int(input("Choose your y coordinate: ")))
 
 print(f"Your point falls within the rectangle: {guessed_point.falls_within_rectangle(rand_rectangle)}")
+
+guessed_area = int(input("What do you think the area is of the rectangle?: "))
+
+print(f"You were off by {int(rand_rectangle.area_of_rectangle() - guessed_area)}, the actual area is {rand_rectangle.area_of_rectangle()}")
+
