@@ -18,6 +18,26 @@ class Point:
     #    return((self.x - point.x) ** 2 + (self.y - point.y) ** 2) ** 0.5
 
 
+
+class GraphPoint(Point):
+
+    def draw(self, canvas, size=5, color='red'):
+        # deactivate pen
+        canvas.penup()
+
+        # navigate to point
+        canvas.goto(self.x, self.y)
+
+        # activate pen
+        canvas.pendown()
+
+        # submit dot
+        canvas.dot(size, color)
+
+        # end turtle
+        turtle.done()
+
+
 class Rectangle:
 
     def __init__(self, point1, point2):
@@ -52,25 +72,6 @@ class GraphRectangle(Rectangle):
         canvas.forward(self.point2.y - self.point1.y)
 
 
-
-
-class GraphPoint(Point):
-
-    def draw(self, canvas, size=5, color='red'):
-        # deactivate pen
-        canvas.penup()
-
-        # navigate to point
-        canvas.goto(self.x, self.y)
-
-        # activate pen
-        canvas.pendown()
-
-        # submit dot
-        canvas.dot(size, color)
-
-        # end turtle
-        turtle.done()
 
 graph_rectangle = GraphRectangle(Point(randint(0,100), randint(0, 100)), Point(randint(101, 200),randint(101, 200)))
 
